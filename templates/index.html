@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Handwritten Image Gender Classifier</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">Upload & Predict</button>
+        </form>
+        {% if prediction %}
+        <div class="result">
+            <p>Predicted Gender: <strong>{{ prediction }}</strong></p>
+            <p>Confidence: {{ confidence }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
